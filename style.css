@@ -1,0 +1,28 @@
+#operate{
+    display: flex; 
+    flex-wrap: wrap;
+}
+button{
+    border: 5px solid black;
+    background-color: red;
+    font-size: large;
+    font-weight: bold;
+    width:125px;
+    height: 125px;
+}
+button#clear{
+    width: 500px;
+    height: 125px;
+}
+#parent{
+     width: 500px;
+}
+
+/*
+#parent{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+    */
