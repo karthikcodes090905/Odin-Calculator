@@ -32,9 +32,20 @@ function operate(operator , operand1 , operand2){
  const display = document.querySelector("#display");
  buttons.forEach((button) =>{
  button.addEventListener("click" , (event) =>{
+     let helper = event.target.textContent ;
+     
+     if(!isNaN(helper)){
+        operand1 += helper ;
+     }
+     else{
+        operator += helper ;
+     }
+
+     /*
      operand1 += event.target.textContent ;
      console.log(operand1);
-     display.textContent = operand1 ; 
+     */
+     display.textContent = (operand1 + operator); 
  });
 }) ;
 
