@@ -33,19 +33,22 @@ function operate(operator , operand1 , operand2){
  buttons.forEach((button) =>{
  button.addEventListener("click" , (event) =>{
      let helper = event.target.textContent ;
-     
-     if(!isNaN(helper)){
+     if(!isNaN(helper) && operator == ""){
         operand1 += helper ;
      }
      else{
+      if(operator == ""){
         operator += helper ;
-     }
-
+          }
+     else{
+        operand2 += helper ;
+         }
+      }
      /*
      operand1 += event.target.textContent ;
      console.log(operand1);
      */
-     display.textContent = (operand1 + operator); 
+     display.textContent = (operand1 + operator + operand2); 
  });
 }) ;
 
