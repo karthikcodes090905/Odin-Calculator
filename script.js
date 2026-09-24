@@ -26,31 +26,33 @@ function operate(operator , operand1 , operand2){
     else return divide(operand1 , operand2);
     }
 
- // console.log(operate("+",1,2));
-
  const buttons = document.querySelectorAll("button");
  const display = document.querySelector("#display");
  buttons.forEach((button) =>{
  button.addEventListener("click" , (event) =>{
-     let helper = event.target.textContent ;
-     if(!isNaN(helper) && operator == ""){
+   
+      let helper = event.target.textContent ;
+         
+      if(!isNaN(helper) && operator == ""){
         operand1 += helper ;
-     }
-     else{
-      if(operator == ""){
-        operator += helper ;
+      }
+      else if(isNaN(helper) && operand2 != ""){
+      operand1 = operate(operator , operand1 , operand2); 
+      operator = event.target.textContent ; 
+      operand2 = "" ;
+      }
+      else{
+         if(operator == ""){
+              operator += helper ;
           }
-     else{
-        operand2 += helper ;
+         else{
+              operand2 += helper ;
          }
       }
-     /*
-     operand1 += event.target.textContent ;
-     console.log(operand1);
-     */
-     display.textContent = (operand1 + operator + operand2); 
+      display.textContent = (operand1 + operator + operand2); 
+   });    
  });
-}) ;
+
 
 
 
